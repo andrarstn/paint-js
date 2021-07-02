@@ -121,7 +121,7 @@ function segitiga(alas, tinggi, rotateShape = 0, flipX = 'odd', flipY = 'odd') {
     // console.log(recentSize);
 
     let startPointX = canvasView.width/2 + alas/2
-    let startPointY = canvasView.height/2 + tinggi/2
+    let startPointY = canvasView.height/2 - tinggi/2
 
     recentCoordinateX = startPointX
     recentCoordinateY = startPointY
@@ -129,16 +129,10 @@ function segitiga(alas, tinggi, rotateShape = 0, flipX = 'odd', flipY = 'odd') {
     context.beginPath();
     if (rotateShape != 0) {
         tempRotate.push('segitiga', rotateShape)
-        context.translate(startPointX + (panjang/2), startPointY + (lebar/2));
+        context.translate(canvasView.height/2, canvasView.width/2);
         context.rotate(Math.PI / 180 * rotateShape);
-        context.translate((startPointX + (panjang/2))*-1, (startPointY + (lebar/2))*-1);
+        context.translate((canvasView.height/2)*-1, (canvasView.width/2)*-1);
     }
-
-    console.log(0.3333*((canvasView.width/2 + alas/2, canvasView.height/2 - tinggi/2)+(canvasView.width/2 + alas/2 ,canvasView.height/2 - tinggi/2 + tinggi)+(canvasView.width/2 + alas/2 -alas,canvasView.height/2 -tinggi/2 +tinggi)));
-    console.log(canvasView.height/2);
-    console.log(startPointX);
-    console.log(startPointY);
-
     // context.moveTo(canvasView.width/2, canvasView.height/2 - tinggi/2 );
     // context.lineTo(canvasView.width/2 + alas/2 ,canvasView.height/2 + tinggi/2);
     // context.lineTo(canvasView.width/2 - alas/2 ,canvasView.height/2 + tinggi/2);
